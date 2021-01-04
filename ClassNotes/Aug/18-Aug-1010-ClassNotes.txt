@@ -1,0 +1,128 @@
+Yesterday's session : Component Scanning & package naming
+
+Today's session : Dependency Injection
+-------------------------------------------------------------
+-> The process of identifying spring beans available in the application is called as Component Scanning
+
+-> Start package is called as base package.
+
+-> The packages names which are starting with base package name is called as sub-packages
+
+-> By default base package and sub-packages will participate in Component Scanning (we no need to enable Component Scanning manully in Spring Boot)
+
+Dependency Injection
+--------------------
+-> The process of injecting dependent object into target    object is called as Dependency Injection
+
+-> In Spring Framework, IOC is responsible to perform Dependency Injection
+
+-> We can perform dependency injection in below 3 ways
+
+	1) setter injection
+	2) constructor injection
+	3) field injection
+
+What is setter Injection
+-------------------------
+-> The process of injecting dependent bean object into target bean object by calling target class setter method is called as Setter Injection.
+
+-> To perform Setter Injection in Spring Boot App, we are using @Autowired annotation at setter method level.
+------------------------------------------------------------
+public interface UserDao {
+
+	public String findNameById(Integer id);
+
+}
+--------------------------------------------------------------
+package com.ashokit.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class UserDaoImpl implements UserDao {
+
+	public UserDaoImpl() {
+		System.out.println("** UserDaoImpl :: Constructor **");
+	}
+
+	@Override
+	public String findNameById(Integer id) {
+		if (id == 101) {
+			return "John";
+		} else if (id == 102) {
+			return "Smith";
+		} else {
+			return null;
+		}
+	}
+}
+------------------------------------------------------------
+package com.ashokit.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ashokit.dao.UserDao;
+
+@Service
+public class UserService {
+
+	public UserService() {
+		System.out.println("** UserService:: Constructor ** ");
+	}
+
+	private UserDao userDao;
+
+	@Autowired
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
+	public void getName(Integer id) {
+		String name = userDao.findNameById(id);
+		System.out.println(name);
+	}
+
+}
+--------------------------------------------------------------
+package com.ashokit;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.ashokit.service.UserService;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+		UserService serviceBean = context.getBean(UserService.class);
+		serviceBean.getName(101);
+	}
+}
+------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

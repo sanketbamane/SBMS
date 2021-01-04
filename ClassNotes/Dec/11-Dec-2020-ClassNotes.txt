@@ -1,0 +1,6 @@
+
+
+
+
+
+	   http://host.docker.internal:3333/api/stock/calculate/BHEL/10

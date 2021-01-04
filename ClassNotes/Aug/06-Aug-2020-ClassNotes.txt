@@ -1,0 +1,71 @@
+Yesterday's session : What is Spring Boot ?
+
+Today's session : First Spring Boot Application
+----------------------------------------------------------
+
+-> Spring Boot is an approach to develop Spring Based applications with minimal or less configurations
+
+-> All Spring Modules we can use in Spring Boot also
+
+-> Whatever the application that we can develop using Spring, same application can be developed by using Spring Boot also.
+
+-> Spring Boot is not replacement for Spring. 
+
+-> Spring Boot is an enhancement for Spring Framework
+
+What are the advantages of Spring Boot
+--------------------------------------
+1) Auto Configuration
+
+2) Embedded Servers (Tomact, Jetty & Undertow)
+
+3) Starter Poms (Simplifies maven configuration)
+
+4) Actuators (Production Ready Features)
+
+5) Easy Integration with Third Party Libraries
+
+6) No XML configuration
+
+7) Integration with Embedded DB (H2)
+
+Dis-Advantages of Spring Boot
+-----------------------------
+-> Spring Boot is best suitable for scratch development projects.
+
+-> IT is very difficult and time consuming process to convert existing spring framework based projects into spring boot applications.
+
+Conclusion
+-----------
+
+Spring Boot = 
+	(Spring Framework + Auto Configuration + Stater Poms + Embedded 			Servers + Actuators ) - XML Configuration
+
+Creating First Project Using Spring Boot
+-----------------------------------------
+Spring Boot Application we will create in below 2 ways
+
+1) Using Spring Initializer website (start.spring.io)
+
+2) Using IDEs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

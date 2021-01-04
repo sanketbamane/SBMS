@@ -1,0 +1,97 @@
+Yesterday's session : Course Details
+------------------------------------
+
+Spring MVC
+----------
+-> Spring MVC is one of the module available in Spring Framework
+
+-> Using Spring MVC module we can develop below types of applications
+
+		1)Web applications (C 2 B)
+
+		2)Distributed Applications (B 2 B)
+
+
+What is Web Application?
+-----------------------
+Any application that we can access from browser is called as web application.
+
+Web Applications will have user interface
+
+End user will directley communicate with web application
+
+	Ex: facebook, irctc, gmail etc...
+
+
+
+What is Distributed Application?
+--------------------------------
+-> If one application is communicating with another application then they are called as distributed applications.
+
+-> We will use Webservices or Restfulservices to represent application as Distributed Application.
+
+-> End users will not communicate with Webservices Or Restful services directley.
+
+-> Distributed applications provides Business To Business Communication channel (B 2 B)
+
+Ex:  weather-forecasting, stock-prices, flight-details etc....
+
+-----------------------------------------------------------------
+
+-> Spring MVC module is developed using 2 Design Patterns
+
+		1) MVC
+		2) Front Controller
+
+
+MVC
+----
+-> MVC means Model View Controller
+
+-> Model Represents Data
+
+-> View Represents User Interface
+
+-> Controller Represents Request Handling
+
+-> Using this MVC architecture we can develop application components with loosely coupling.
+
+-> If we achieve loosely coupling then Maintenence of the project will be easy.
+
+Front Controller
+-----------------
+-> In web application we will develop Several Controllers to handle User Requests.
+
+-> Front Controller acts as Entry Point for all requests.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

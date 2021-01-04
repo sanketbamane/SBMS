@@ -1,0 +1,81 @@
+Yesterday's session : @Component @Service @Repository
+
+Today's session : 
+
+Class Notes Code : inrundw
+----------------------------------------------
+
+-> To represent our java class as Spring Bean we are using below 3 annotations
+
+	1) @Component (For Utility components)
+	2) @Service (For Business layer components)
+	3) @Repository (For persistent components)
+
+-> When we use these annotation, IOC will create objects for those classes as part of Component Scanning
+
+-> @Configuration : It is used to represent our java class as Configuration class.
+
+	-> We can configure Data Source bean
+	-> We can configure swagger configuration
+	-> We can configure Rest Template
+
+-> @Component, @Service, @Repository and @Configuration these all are class level annotations. When we use these annotation at java class then it is the responsibility of IOC to create objects for those classes.
+
+
+-> UIManager.java class i have. IT is normal java class. I want to represent this class as Spring Bean but ioc should not create the object. We can achieve this by using @Bean annotation.
+
+------------------------------------------------------------------
+@Configuration
+public class AppConfig {
+
+	public AppConfig() {
+		System.out.println("** AppConfig :: Constructor **");
+	}
+
+	@Bean
+	public UIManager getInstance() {
+		System.out.println("** getInstance( ) :: Method Called");
+		UIManager ui = new UIManager();
+		return ui;
+	}
+}
+------------------------------------------------------------------
+
+
+
+
+
+
+
+
+@Repository
+public class UserDao{
+
+@Autowired
+private OracleDataSource ds;
+
+
+}
+--------------------------------------------------------
+@Configurtion
+public class AppConfig{
+
+    @Bean
+    public OracleDataSource getDs(){
+	OracleDataSource ds = new OracleDataSource();
+	ds.setUname(""); ds.setPwd(""); ds.setUrl("");
+	ds.setDriverClass("");
+	return ds;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+

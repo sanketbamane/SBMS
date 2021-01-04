@@ -1,0 +1,65 @@
+Yesterday's session : First Web App Development using Spring Boot
+------------------------------------------------------------------
+
+-> In Spring MVC, Dispatcher Servlet acts as Front Controller
+
+-> HandlerMapper will identify request handler
+
+-> Controller will process the request and will return logical view name.    It is called as Request Handler
+
+-> View Resolver identifies view file using preffix and suffix
+
+-> View component will render model data on the view file
+
+-> Finally Dispatcher Servlet will send response to client request
+-------------------------------------------------------------------------
+
+-> spring-boot-starter-web dependency is used to build web app
+
+-> @Controller annotation is used to represent our class as Spring Controller
+
+-> @RequestMapping annotation to bind controller method to URL pattern
+
+-> Controller method returning ModelAndView object
+
+-> For ModelViewObject we are setting below details
+
+		1)data in the form of key & value
+		2)logical view name
+
+Note: Model data we can access in view file using key
+
+--------------------------------------------------------
+
+
+@Controller
+public class SecondController {
+
+	@RequestMapping(value="/welcome", method=RequestMethod.GET)
+	public ModelAndView displayWelcomeMsg() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("msg", "Welcome to Ashok IT...!!");
+		mav.setViewName("index");
+		return mav;
+	}
+
+	@GetMapping("/greet")
+	public String displayGreetMsg(Model model) {
+		model.addAttribute("msg", "Good Morning..!!");
+		return "index";
+	}
+}
+
+--------------------------------------------------------
+-> @GetMapping annotation is used to bind our method to HTTP GET Request
+
+-> Model is an interface which is used to store data in the form of key and value pair
+
+-> Model is used to send data from controller to UI
+
+
+
+
+
+
+

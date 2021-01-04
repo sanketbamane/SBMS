@@ -1,0 +1,71 @@
+Yesterday' session : JpaRepository
+-----------------------------------------
+
+-> JPA repository supports for Pagination & Sorting
+
+
+What is Pagination?
+-------------------
+It is the process of dividing total records into multiple pages and retrieve records based on page no and page size.
+
+Ex : Google Search Results
+
+What is Sorting?
+----------------
+While retriving data from table we can apply sorting like price high to low or low to high
+
+-> Ascending and Descending techniques we can use while retriving data
+
+Ex : Flipkart products
+
+
+10 records available in table
+-----------------------------
+page-size = 3
+
+
+What is QBE?
+------------
+-> QBE means Query By Example Executor
+
+-> Using QBE we can constructor queries based entity class object data.
+
+	CustomerEntity entity = new CustomerEntity( );
+	entity.setCustomerName("Ashok Kumar");
+
+	Example<CustomerEntity> example = Example.of(entity);
+
+	List<CustomerEntity> list  = repository.findAll(example);
+
+Conclusion
+----------
+In Data JPA we can execute queries in below 4 ways
+
+1) Using Pre Defined methods
+
+2) with findBy methods
+
+3) With Custom Queries
+
+4) With QBE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

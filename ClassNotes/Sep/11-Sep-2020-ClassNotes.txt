@@ -1,0 +1,106 @@
+Last session : ORM Properties (show_sql, format_sql, ddl_auto)
+--------------------------------------------------------------
+-> ddl_auto is used to generate schema dynamically in runtime
+
+-> For this property we can supply below values
+
+ 1) insert : Everytime new table will be created
+ 2) insert-drop : Everytime new table will create and will drop
+ 3) update : If table is not available then only it will create tbl
+ 4) validate: To verify schema
+
+-> show_sql property is used to print queries on console
+
+-> format_sql property to format queries while printing on console
+
+findBy methods in Spring Data JPA
+----------------------------------
+-> To retrieve records from table we can use below methods
+
+    1) findById(ID id)
+    2) findAllByIds(Iterable ids)
+    3) findAll ()
+
+Q) Using these methods can we retrieve records based on Non-Primary key column values?
+
+Ans) Using above 3 methods it is not possible.
+
+-> To achieve this requirement we can write findBy methods.
+
+-> Spring Data JPA having capability to construct queries based on findBy method Names.
+
+-> For findBy methods naming convention is very important
+
+-> Method names should represent entity class variables name.
+
+------------------------------------------------------------------
+@Data
+@Entity
+@Table(name = "CUSTOMER_DTLS_TBL")
+public class CustomerEntity {
+
+	@Id
+	@Column(name = "C_ID")
+	private Integer customerId;
+
+	@Column(name = "CUSTOMER_NAME")
+	private String customerName;
+
+	@Column(name = "CUSTOMER_EMAIL")
+	private String customerEmail;
+
+}
+-------------------------------------------------------------------
+
+public interface CustomerRepository extends CrudRepository<CustomerEntity, Serializable> {
+
+	public CustomerEntity findByCustomerEmail(String emailId);
+	
+	public CustomerEntity findByCustomerName(String cname);
+	
+	public CustomerEntity findByCustomerEmailAndCustomerName(String email, String name);
+
+}
+----------------------------------------------------------------------------------------
+
+
+
+Executing Custom Queries in Spring Data JPA
+-------------------------------------------
+-> In Spring Data JPA we have flexibility to execute custom queries also
+
+-> To execute custom queries we will use @Query annotation.
+
+
+@Query(value = "from CustomerEntity where customerName=:cname")
+public CustomerEntity getCustomer(String cname);
+	
+@Query(value="from CustomerEntity where customerName=:name and customerEmail=:email")
+public CustomerEntity findCustomer(String name, String email);
+
+
+Note: :name and :email are called as Named Positional parameters. Named Positional Parameters are used to supply values to query dynamically in Runtime. Named Positional parameter name and method parameter name should be same then only data jpa can set our method parameter values to query in runtime.
+
+
+
+Assignment
+==========
+Write Custom queries to perform update & delete operations using Data JPA.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

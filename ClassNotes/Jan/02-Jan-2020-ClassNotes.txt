@@ -1,0 +1,33 @@
+Tomorrow we have PCF workshop @3 PM or 4 PM
+--------------------------------------------
+Apache Kafka (Messaging Queue)
+
+Redis Cache (Distributed Cache)
+
+Service Registry
+
+API Gateway
+
+Docker
+
+Jenkins
+
+
+
+Singleton Pattern
+
+Cache Design Pattern
+
+Publisher - Subscriber Pattern
+
+Circuit Breaker Pattern 
+
+
+
+
+
+
+
+
+
+

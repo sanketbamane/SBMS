@@ -1,0 +1,88 @@
+Last session : MVC Architecture
+-------------------------------
+Today's session : First MVC Application using Spring Boot
+----------------------------------------------------------
+
+Steps to create Web Application using Spring Boot
+--------------------------------------------------
+1) Create Spring Boot Application with below dependencies
+
+	1)spring-boot-starter-web
+	2)spring-boot-dev-tools
+	3)tomcat-embed-jasper (take from mvn repo)
+
+-> spring-boot-starter-web provides below 3 things
+		1) web app development
+		2) Rest API development
+		3) Embedded Tomcat Container will be provided
+
+-> spring-boot-devtools is used to reload resource changes (re-start the server)
+
+-> Tomcat embed jasper dependency is used to compile our jsp files
+
+2) Create Controller Class using @Controller annotation with Required Method and map method with URL pattern using @RequestMapping annotation.
+
+3) Create view file for presentation (jsp file)
+
+4) Configure below properties in application.properties file
+
+		1)server-port
+		2)view-resolver
+
+
+--------------------------------------------------------------
+
+@Controller
+public class WelcomeController {
+
+	@RequestMapping("/welcome")
+	public ModelAndView displayWelcomeMsg() {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		//Setting data to display in view
+		mav.addObject("msg", "Welcome to Ashok IT...!!");
+		
+		//Setting Logical View Name
+		mav.setViewName("index");
+		
+		return mav;
+	}
+}
+-----------------------------index.jsp-------------------------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>${msg}</h1>
+
+</body>
+</html>
+----------------------application.properties-----------------------------
+#Server Port Number Configuration
+server.port=9090
+
+#View Resolver Configuration
+spring.mvc.view.prefix=/views/
+spring.mvc.view.suffix=.jsp
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+

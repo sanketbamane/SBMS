@@ -1,0 +1,43 @@
+Yesterday's class : Spring Boot Advantages
+
+Today's session : Building First Spring Boot Application
+---------------------------------------------------------
+
+-> We can create Spring Boot application in 2 ways
+
+     1) Using Spring Initializer website (start.spring.io)
+     2) Using IDEs (Eclipse, STS, IntelliJ IDEA)
+
+Note: If we use IDE, internally IDE will communicate with start.spring.io website only to create Boot Application
+
+-> Open start.spring.io website and create boot application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-

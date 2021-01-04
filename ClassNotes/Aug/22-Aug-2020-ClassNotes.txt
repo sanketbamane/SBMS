@@ -1,0 +1,78 @@
+Yesterday's class : Field Injection
+
+Today's class  : SI vs CI vs FI
+-----------------------------------------------------------
+
+-> The process of injecting dependent bean obj into target bean object using variable in target bean.
+
+-> If we specify @Autowired annotation at variable level then IOC will perform Field Injection
+
+
+	     @Autowired
+	Ex : private UserService userService;
+
+-> When we specify @Autowired at field level IOC will use reflection api to inject dependent inject into variable.
+
+
+---------------------------------
+public class Engine{
+
+}
+--------------------------------
+public class Car{
+
+      public Car(Engine eng){
+
+      }
+}
+-------------------------------------------------------------------
+@Service
+public class UserService{
+
+	@Autowired
+	private ReportDao reportDao;
+
+	@Autowired
+	private RolesDao rolesDao;
+
+	@Autowired
+	private RoleAccessDao roleAccessDao;
+
+	@Autowired
+	private TriggersDao triggersDao;
+
+}
+--------------------------------------------------------------------
+@Service
+public class UserService{
+	
+	public UserService(ReportDao rdao)
+
+}
+--------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

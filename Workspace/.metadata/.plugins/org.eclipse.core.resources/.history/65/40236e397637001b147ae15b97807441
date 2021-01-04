@@ -1,0 +1,20 @@
+server:
+  port: 3333
+spring:
+  application:
+    name: API-GATEWAY
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5050/eureka/
+      
+      
+zuul:
+  prefix: /api
+  routes:
+    account:
+      path: /account/**
+      serviceId: account-service
+    customer:
+      path: /customer/**
+      serviceId: customer-service

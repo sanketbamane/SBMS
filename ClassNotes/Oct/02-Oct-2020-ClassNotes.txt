@@ -1,0 +1,37 @@
+Yesterday's sessioin : Second Web App Using Spring Boot
+-------------------------------------------------------
+Today's session : Request Mappings & Context Path
+-------------------------------------------------------
+
+-> To create controller we are using @Controller annotation
+
+-> Inside controller class we can write multiple methods
+
+-> Controller methods should be binded to unique url pattern
+
+-> To bind controller methods to URL pattern we can @RequestMapping annotation
+
+-> When we use @RequestMapping annotation then method will be binded to GET request (default)
+
+-> From Spring 4.0 onwards we can use below annotations to bind controller methods to url pattern
+
+		@GetMapping
+		@PostMapping
+		@PutMapping
+		@DeleteMapping
+
+-> To avoid URL patterns ambiguity problem we can configure class level url also using @RequestMapping annotation
+
+
+
+
+
+
+
+
+
+
+
+
+
+

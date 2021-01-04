@@ -1,0 +1,15 @@
+Last session : APIs released by SUN to develop webservices
+-------------------------------------------------------------
+
+-> Sun Microsystem released below 2 apis to develop webservices
+
+	1) JAX-RPC API (B.P 1.0 Specification)
+
+	2) JAX-WS API (B.P 1.1 Specification)
+
+-> By using above 2 apis if we develop a webservices then it is called as SOAP Based Webservice.
+
+
+-> Sun Microsystem released JAX-RS api to develop RESTFul services.
+
+Note: But now a days we are not using the above APIs directley because Spring Framwork has provided support for developing SOAP Webservices & RESTful services

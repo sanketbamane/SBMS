@@ -1,0 +1,66 @@
+Yesterday's session : H2 Database (in memory)
+---------------------------------------------
+-> Our spring boot having very good integration with H2 database
+
+-> H2 db is also called as Embedded DB or In-Memory DB
+
+-> No need to do any installation to work with H2 Database
+
+-> If we add dependency in pom.xml file then DB will be available for our application.
+
+-> If application stopped, then DB also will be stopped
+
+-> Embedded DBs will be used for temporary purpose.
+
+Steps to develop Form Based Application with H2 Database
+---------------------------------------------------------
+1) Create Spring Boot app with below dependencies
+	1)spring-boot-starter-web
+	2)spring-boot-starter-data-jpa
+	3)H2 Database
+	4)tomcat-embed-jasper
+	5)jstl
+	6)devtools
+	7)project lombok
+
+2) Configure below properties in application.yml file
+	1)server port
+	2)h2 datasource properties
+	3)view resolver
+
+3) Create Entity class & repository interface
+
+4) Create Controller class with required methods
+	a)one method for form loading
+	b)one method for form submission
+
+5) Create View Files
+	a)addBook.jsp
+	b)viewBooks.jsp
+
+6) Run application and test it.
+
+
+
+
+
+
+booksList
+----------
+for(Book b : booksList){
+	b.getBookId();
+	b.getBookName();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

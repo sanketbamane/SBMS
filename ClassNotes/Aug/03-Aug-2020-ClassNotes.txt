@@ -1,0 +1,212 @@
+Spring Boot With Microservices
+------------------------------
+
+-> It is completley Online Training
+
+-> Trainer : Ashok (8+ years of experince)
+	     (Currently i am working in Prod Based company)
+
+
+Pre-Requisites
+--------------
+1) Core Java 
+
+2) Adv Java (JDBC, Servlets & JSP)
+
+3) Frameworks
+	 - ORM Basics (Hibernate) 
+	 - Spring (Spring Core Module)
+
+4) Database (SQL)
+
+
+Course Content
+--------------
+
+Part-1
+======
+
+Spring Core 
+--------------
+	 - IOC 
+	 - Dependency Injection
+	 - AutoWiring
+	 - BeanLifeCycle
+
+Spring Boot 
+-----------
+	 - Spring vs SpringBoot
+	 - Spring Boot Advantages
+	 - Spring Boot Starter Poms
+	 - Spring Boot Application creation 
+		 - Initializer website
+		 - IDE
+	 - @SpringBootApplication	 
+	 - @ComponentScanning
+	 - AutoConfiguration
+	 - SpringAppllication.run( ) method
+	 - Banner in Spring Boot
+	 - Runners in Spring Boot
+		 - Application Runner
+		 - CommandLine Runners
+
+
+Part-2) Spring Data JPA
+-------------------------
+Persistence Layer 
+Best Practises for Persistence Layer
+Differences between Hibernate & Data JPA
+Spring Data JPA repositories
+	 - CrudRepository
+	 - JpaRepository
+Entity class (with Annotations)
+Curd Operations using Data JPA
+Pagination & Sorting
+Generators
+Custom Generators
+application.properties file & application.yml
+Profiles in SpringBoot
+Oracle DB Integration
+MySql DB Integration
+Embedded DB (h2) Integration
+Monog DB Integration
+
+
+
+Part-3 ) Spring Web MVC
+=======================
+MVC Introduction
+Spring MVC Introduction
+Spring MVC Architecture
+DispatcherServlet (Front Controller)
+HandlerMappers
+Controllers
+View Resolvers
+RequestMappings
+Spring Form Tag Library
+Form Based applications
+Form app with JSP front End
+Form app with Thymeleaf Front End
+Form validations
+Model
+ModelAttribute
+@RequestBody
+@ResponseBody
+Interceptors in Spring MVC
+Spring Boot Actuators
+Exception Handling using Spring AOP
+
+Part-4) Restful Services
+========================
+Distributed Applications
+Distributed Technologies
+SOAP vs REST
+Rest Introduction
+Rest Architecture
+Rest Principles
+Rest Application Development using Spring With REST
+Internals of REST Application
+HTTP Protocol
+	- Http Request Structure
+	- Http Response Structure
+Http Status Codes
+Http Status Messages
+GET
+POST
+PUT
+DELETE
+JSON with Jackson
+XML with JAX-B
+Swagger 
+Swagger UI
+POSTMAN
+Exception Handling REST API
+
+Rest Client Introduction
+java.net client
+apache http client
+RestTemplate
+WebClient (reactive programming- Spring 5.x)
+
+Mono Objects
+Flux Objects
+Asynchronus Communications
+
+Part-5 : Microservices
+=======================
+Monolith Architecture
+Drawbacks of Monolith
+Load Balancers
+Load Balancer Algos
+	- Sticky session
+	- IP Hashing
+	- Round Robbin etc..
+
+Microservices Introduction
+Microservices challenges
+Microservices Advantages
+Microservices Architecture
+Service Registry (Eureka Server)
+API Gateway with Zuul proxy
+Config Server
+
+2 Microservices Development
+Interservice Communication (FeginClient)
+Angular 10 Integration
+
+Cloud Platforms
+PCF cloud
+PCF account creation
+PCF CLI
+Microservice Deployment to Cloud
+Scaling
+	- Horizontal Scaling
+	- Verticle Scaling
+	- AutoScaling
+
+SpringBoot Admin & Client
+Circuit Breaker (Hystrix)
+Distributed Log Tracing( Sleuth & Zipkin )
+Security (oAuth2.0 & JWT)
+Unit Testing (Junit & Mocking)
+
+Apache kafka
+Redis Cache
+Docker
+Jenkins
+SonarQube
+
+
+
+Duration : 90 Days
+
+Timings : Daily 8:45 AM IST - 9:45 AM IST  (Monday - Saturday)
+
+Mode : Online (Zoom)
+
+Fee : 5000 INR
+
+Note: Daily class notes will be shared in Email
+
+YouTube Channel : Ashok IT
+
+Facebook Group Name : Ashok IT
+
+whatsapp no : +91-6301921083
+
+website : www.ashokit.in
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

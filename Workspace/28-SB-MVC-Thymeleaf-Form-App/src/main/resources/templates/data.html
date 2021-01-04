@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<table>
+		<tr>
+			<td>First Name:</td>
+			<td><p th:text="${user.fname}" /></td>
+		</tr>
+		<tr>
+			<td>Last Name:</td>
+			<td><p th:text="${user.lname}"/></td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td><p th:text="${user.email}"/></td>
+		</tr>
+	</table>
+	
+	<a href="/">Go Back</a>
+
+</body>
+</html>

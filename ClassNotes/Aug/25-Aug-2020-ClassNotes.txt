@@ -1,0 +1,45 @@
+Yesterday's session : SI vs CI vs FI
+
+Today's session : Stereo type Annotations
+----------------------------------------------
+
+-> In Spring Boot we are having component scanning as built-in functionality
+
+-> It is the process of searching spring bean available in our application.
+
+-> Component Scanning is part of @SpringBootApplication annotation
+
+How to represent java class as Spring Bean?
+-------------------------------------------
+-> To represent java class as spring bean we have several annotations
+
+1) @Component
+
+2) @Service
+
+3) @Repository
+
+Note: All the above 3 annotations will represent our java class as spring bean only.
+
+@Repository
+public class UserDao{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

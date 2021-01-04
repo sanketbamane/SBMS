@@ -1,0 +1,86 @@
+Last session : URL Mappings in Controllers
+------------------------------------------
+
+-> We can create Multiple controllers in Spring MVC application
+
+-> In One Controller class we can have multiple methods
+
+-> For every controller we can map class level url pattern
+
+-> For Controller methods also we can map method level url pattern
+
+-> We need to make all methods url patterns are unique
+
+------------------------------------------------------------------------
+-> When we run spring boot web application by default it will be deployed in Embedded Container
+
+-> Embedded Conatiner is used to deploy and run our web application
+
+-> Apache Tomcat is the default embedded container for Spring Boot Web application
+
+-> For Every Boot Web Application, Embedded Container will start. Once our application is stopped, Embedded Container also will be stopped.
+
+Q) Can i run two web apps in One Embedded Container?
+-----------------------------------------------------
+Ans) Not possible, for every project its own embedded container will be available.
+
+
+Q) Can i run more than one app in External Server?
+--------------------------------------------------
+Ans) We can deploy more than one application also in External Server. They will be differentiated with Project Name (Context-Path)
+
+
+
+-> As Spring Boot applications are running in Embedded Container we should not specify Project name in the URL (default behaviour)
+
+-> If we want to include project name in the URL to acces controller methods then we can add Context-Path for the project in application.properties file.
+
+
+Note: By default Embedded Containers will run on 8080 Port Number. To change that port number we can add below property in application.properties file.
+
+	server.port = 9090
+
+Note: If oracle server is not insttalled no need to change the port number because oracle server will run on 8080. Two application can't use same port number in one machine.
+
+
+Adding Context Path For Boot Application
+----------------------------------------
+-> Add below property in application.properties file
+
+	server.servlet.context-path=/App
+
+Note: Default context-path for boot application is empty.
+
+
+
+Restful Services & Microservices
+--------------------------------
+Batch Code : 05-SBMS
+Timing: 9 AM - 10 AM IST
+Fee : 3000 INR
+
+For registration
+------------------
+Please send whatsapp message to +91-6301921083
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

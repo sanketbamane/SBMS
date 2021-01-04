@@ -1,0 +1,17 @@
+Last session : STOCK-CALC-API and STOCK-PRICE-API
+-----------------------------------------------------
+-> STOCK-PRICE-API maintaing stock price details of companies in H2 database.
+
+-> Stock price api will recieve request with company name as input and it will provide stock price as output.
+
+-> STOCK-CALC-API is responsible to calculate total cost of stocks based on quantity.
+
+-> calc api will communicate price api using REST call.
+
+------------------------------------------------------------------
+-> In calc api we are using rest template to make a call to price api and getting response.
+
+
+
+
+

@@ -1,0 +1,40 @@
+Yesterday's session : CSV app requirement
+
+Today's class : Implementation
+---------------------------------------------
+
+
+Desigining classes
+------------------
+
+Product.java
+------------
+Integer productId;
+String productName;
+Double productPrice;
+----------------------------------------------
+
+CsvDataReader.java
+-------------------
+public List<Product> readProductsData(String fileName);
+
+ProductsDataFilter.java
+------------------------
+public List<Product> filterData(List<Product> products);
+
+CsvDataWriter.java
+------------------
+public String writeProductsData(List<Product> products);
+
+ProductService.java
+--------------------
+public String doProcess(String fileName);
+
+
+
+
+
+
+
+
+

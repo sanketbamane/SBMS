@@ -1,0 +1,66 @@
+Last session : How IOC will start in Spring Boot
+
+Today's session : @SpringBootApplication internals
+---------------------------------------------------
+
+-> When we create SpringBoot application, we will get one start class
+
+-> In Boot start class we will have @SpringBootAppliation annotation at class level
+
+-> @SpringBootApplication annotation contains below 3 annotations
+
+	1) @SpringBootConfiguration
+	2) @EnableAutoConfiguration
+	3) @ComponentScan
+
+What is @SpringBootConfiguration?
+---------------------------------
+This annotation represents our class as Java Based Configuration class. We can customize our beans creations in this class.
+
+What is @EnableAutoConfiguration?
+---------------------------------
+-> Auto Configuration is one of the powerful feature provided by Spring Boot.
+
+-> Based on our application components, Boot will guess what configuration is required for our application and will configure such configuration accordingly.
+
+Examples
+--------
+-> If we add db config properties in .properties file it will create connection pool
+
+-> If we add spring-boot-starter-web in pom.xml, it will start embedded container to run our application
+
+Note: We can see auto configuration components in spring.factories file
+
+Project -> Maven Dependencies -> spring-boot-auto-configure.jar -> META-INF -> spring.factories
+
+
+What is @ComponentScan?
+------------------------
+This is used to identify which classes are configured as Spring Beans in our application.
+
+		(or)
+
+Component Scanning is a process of searching for Spring Beans available in our application.
+
+Note: In Spring also we can use Component Scanning but we have to enable it manually Where as in SpringBoot we no need enable it bcz it is built in functionality.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

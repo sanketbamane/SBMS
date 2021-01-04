@@ -1,0 +1,81 @@
+Yesterday's session : JpaRepository methods
+--------------------------------------------
+
+-> For every table we have to maintain primary key column
+
+-> Primary Key constraint is used to achieve uniqueness for column data
+
+-> Primary Key constraint is the combination of below 2 constraints  
+
+	1) NOT NULL
+	2) UNIQUE
+
+
+-> If we ask end user to enter the value for Primary Key column he/she may enter duplicate value.
+
+-> If we try to insert a record with duplicate value then Save Contact functionality will fail.
+
+
+-> To avoid this problem ORM frameworks provided Generators concept.
+
+What are Generators?
+--------------------
+-> Generators are used to generate the value for Primary Key Column
+
+-> When we use Generators in application, before saving the record primary key value will be generated with in application then record will be inserted into table along with primary key.
+
+
+-> Hibernate framework provided several built-in generators. Every Generator will have its own alogorithm to generate value for Primary Key column.
+
+
+
+
+
+
+------------Entity class with Generator-----------------------
+@Data
+@Entity
+@Table(name = "STUDENTS_TBL")
+public class Student {
+
+	@Id
+	@Column(name = "STUDENT_ID")
+	@GeneratedValue
+	private Integer studentId;
+
+	@Column(name = "STUDENT_NAME")
+	private String studentName;
+
+	@Column(name = "STUDENT_GENDER")
+	private String studentGender;
+
+}
+------------------------------------------------------------------
+-> When we use @GeneratedValue annotation, it will use hibernate_sequence to get primary key value.
+
+-> hibernate_sequence is the default sequence which comes with hibernate. It will start from 1 and it will increment by 1.
+
+-> When we execute save operation, application will read next value from the sequence.    
+
+	select hibernate_sequence.nextval from dual
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

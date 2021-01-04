@@ -1,0 +1,95 @@
+Yesterday's session : Sending Data From Controller to UI Pages
+--------------------------------------------------------------
+
+-> To send the data from controller to UI pages we are using Model object
+
+-> Model is an interface it is available in Spring MVC
+
+-> Using Model we can store the data in the form of key-value pair
+
+-> The data which is stored in model can be accessed in view file using key 
+
+-> Can we store one object as a value in model object?
+------------------------------------------------------
+Yes, we can store.
+
+-> Can we access object data in view file?
+------------------------------------------
+Yes, we can access object data in view file using variable name.
+
+
+Today's topic : Sending data from UI to Controller
+--------------------------------------------------
+We can data from UI to controller in below ways
+
+1) Query Parameter
+
+2) Path Parameter
+
+3) Forms
+
+Query Parameter
+---------------
+-> Query Parameters are used to send the data to server in URL
+
+-> Query Parameters should present only at end of the URL
+
+-> Query Parameters will start with ?
+
+-> Query Parameters will represent data in the form of Key-Value Pair
+
+	Ex : ?name=Ashok
+
+-> We can send more than one query parameter also in URL using & seperator
+
+	Ex : ?id=101&name=Ashok
+
+-> To recieve Query Parameter value we will use @RequestParam annotation in Spring Controller
+
+---------------------------------------------------------
+@Controller
+public class BookController {
+
+	@GetMapping("/getPrice")
+	public String getBookPrice(@RequestParam("book") String bookName, @RequestParam("author") String authorName,
+			Model model) {
+
+		String msgTxt = "Price of " + bookName + " Written by " + authorName + " is : 300.00 $";
+		
+		model.addAttribute("msg", msgTxt);
+
+		return "index";
+	}
+
+}
+--------------------------------------------------------------
+http://localhost:9090/getPrice?book=Spring&author=RodJohnson
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

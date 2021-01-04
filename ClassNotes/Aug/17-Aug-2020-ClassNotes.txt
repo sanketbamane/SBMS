@@ -1,0 +1,88 @@
+Yesterday's session : IOC & DI
+
+Today's session : Component Scanning
+------------------------------------------------------------------
+
+-> IOC is a principle which is used to manage and colloborate dependencies among the objects in the application
+
+-> The process of injecting one class object into another class object is called as Dependency Injection.
+
+What is Component Scanning?
+---------------------------
+-> It is the process of searching for spring beans available in the application.
+
+-> Component Scanning is built-in functionality available in Spring Boot we no need to enable explicitly.
+
+-> In SpringBoot, component scanning will start from base package.
+
+What is Base Package in SpringBoot?
+-----------------------------------
+-> The package which contains boot start class is called as Base Package.
+
+-> IOC will search for bean classes in Base package, if available then it will instantiate those classes
+
+-> Once base package scanning is completed, then it will search for bean classes in sub packages of bases package.
+
+What is sub-package of base package?
+------------------------------------
+-> Any package name which is starting with base package name then it is called as sub-package for the base package.
+
+-> IOC will load bean classes from sub-packages and will instantiate them.
+
+Example
+--------
+
+Base Package : com.ashokit
+
+com.ashokit.controller (sub-package)
+
+com.ashokit.service (sub-package)
+
+com.ashokit.dao (sub-package)
+
+com.util (not sub-package) - It will not participate in component scanning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

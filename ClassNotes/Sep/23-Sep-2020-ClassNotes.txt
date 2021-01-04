@@ -1,0 +1,97 @@
+Yesterday's session : Spring MVC introduction
+----------------------------------------------
+
+-> Spring MVC is one module in Spring Framework
+
+-> Using this Spring MVC we can develop below types of applications
+
+	1) Web Based Applications ( C 2 B)
+
+	2) Distributed applications (B 2 B)
+
+
+-> Spring MVC mainley developed based on 2 design patterns
+
+	1) MVC Design Pattern
+	2) FrontController Design Pattern
+
+----------------------------------------------------------------
+
+Spring MVC Advantages
+---------------------
+-> Spring MVC Components roles are clearly seperated
+
+-> All Spring MVC Components are loosely coupled
+
+-> Spring MVC supports form binding objects
+
+Note: Using Form Binding Technique, We can capture form data in object and we can display object data in form directley.
+
+Note: Spring MVC supports for Two way data Binding
+
+	object <---------------> form
+
+-> Spring MVC supports flexibility in form binding
+
+	//code in servlets
+	String str = req.getParameter("phno");
+	Long phno = Long.parseLong(str);
+
+Note: In Spring MVC we no need to do this kind of typecasting. Based on variable data type Spring MVC converts form fields data while storing into object.
+
+
+-> Spring MVC supports I 18 N applications
+
+
+Spring MVC Components
+---------------------
+1) Front Controller
+
+2) Handler Mapper
+
+3) Controller
+
+4) ModelAndView
+
+5) View Resolver
+
+6) View
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is Spring MVC?
+What Type of applications we can develop using Spring MVC?
+What are the advantages of Spring MVC?
+What is Front Controller in Spring MVC?
+Can you explain spring mvc architecture?
+What is Handler Mapper?
+What is Controller?
+What is ModelAndView?
+What is ViewResolver?
+How request will be processed in Spring MVC?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

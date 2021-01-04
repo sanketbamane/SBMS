@@ -1,0 +1,98 @@
+Last session : Query Params
+---------------------------
+-> Query Params are used to send data from UI to Controller
+
+-> Query Params represents data in key - value pair format
+
+-> Query Params should be available at end of the URL
+
+-> Query Params will start with ?
+
+-> Query Params will be seperated by using &
+
+   Ex : http://locahost:9090/book?name=spring&author=RodJohnson
+
+-> To read query params we will use @RequestParam("key") in Spring MVC Controller (based on key it will get the value)
+
+Today's topic : Path Params
+---------------------------
+-> Path Params are used to send data to Server in URL
+
+-> Path Parameter contains values directley (No Key)
+
+-> Path Params can present any where in the URL
+
+	
+ex :   http://localhost:9090/book/{name}/author/{authorname}
+
+-> To read path params we will use @PathVariable("segment-name") in Spring MVC Controller
+
+---------------------------------------------------------------------
+@Controller
+public class BookController {
+
+	@GetMapping(value = "/price/{bname}/{aname}")
+	public String getBookPrice(@PathVariable("bname") String bname, 
+							   @PathVariable("aname") String aname, Model model) {
+
+		String msgTxt = aname + " " + bname + " Book Price is :: 300 $";
+
+		model.addAttribute("msg", msgTxt);
+
+		return "index";
+	}
+
+}
+----------------------------------------------------------------------
+http://localhost:9090/price/Spring/RodJohnson
+----------------------------------------------------------------------
+
+Form Based Applications
+-----------------------
+-> By using Spring MVC we can develop form based applications
+
+-> Forms are used to collect data from end user
+
+Ex :  
+---
+Login Form
+Registration Form
+Search Form
+Report Form etc...
+
+-> Spring MVC supports for Form Binding Object
+
+-> Form binding object means, form data can be captured in object directley and object data can be populate in the form directley
+
+-> To work with Forms, Spring MVC provided Form Tag Library.
+
+-> Below are the tags available in Spring MVC Form tag library
+
+form:form : It is a container tag that contains all other form tags.
+
+form:input : This tag is used to generate the text field.
+
+form:radiobutton : This tag is used to generate the radio buttons.
+
+form:checkbox : This tag is used to generate the checkboxes.
+
+form:password: This tag is used to generate the password input field.
+
+form:select : This tag is used to generate the drop-down list.
+
+form:textarea : This tag is used to generate the multi-line text field.
+
+form:hidden : This tag is used to generate the hidden input field.
+
+
+
+
+
+
+
+
+
+
+
+
+

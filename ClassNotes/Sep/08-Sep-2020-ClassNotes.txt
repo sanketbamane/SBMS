@@ -1,0 +1,46 @@
+Yesterday's session : Curd Operations using CrudRepository
+--------------------------------------------------------------
+save( )
+saveAll( )
+findById() 
+findAllById( )
+findAll( )
+delete( )
+deleteById ( )
+deleteAll ( )
+count( )
+existsById( )
+
+Note: For updating record we will use save( ) method only.
+
+
+-> To perform curd operations we will use above methods provided by CrudRepository interface
+
+-> When we will call above methods, internally sql query will be generated to perform DB operation.
+
+-> To print generated queries on the console we should configure show_sql property in application.properties file
+
+
+	spring.jpa.properties.hibernate.show_sql = true
+
+-> To format queries structure we should configure format_sql property in application.properties file
+
+	spring.jpa.properties.hibernate.format_sql = true
+
+
+-> Dynamically Data JPA can create table also in Run time. For that we should configure below property
+
+	spring.jpa.hibernate.ddl-auto=update
+
+
+
+
+
+
+
+
+
+
+
+
+

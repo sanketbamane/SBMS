@@ -1,0 +1,70 @@
+Yesterday's session : Pre-Requisistes & Course Content
+
+Today's session : Spring vs Spring Boot
+-------------------------------------------------------
+
+What is Spring Framework?
+-------------------------
+-> Spring is an application development framework
+
+-> By using Spring We can develop below Types of Applications
+
+	1) Standalone applications
+
+	2) Web applications
+
+	3) Distributed applications
+
+-> Spring framework developed in Modular fashion.    Several modules are available in Spring framework.
+
+-> Spring Framework provides Loosely Coupling
+
+-> Spring provided IOC & DI to achieve Loosely coupling in application development.
+
+	* IOC : Inversion of control
+	* DI : Dependency Injection
+
+IOC : It is a principle which is used manage and colloborate dependencies among the objects in our application.
+
+DI : The process of Injecting dependent bean into target bean.
+
+-> Spring is a versatile framework
+
+What is Spring Boot?
+--------------------
+-> Spring Boot is an approach to develop Spring Based applications with minimal or less configurations.
+
+-> Spring Boot is not replacement for Spring Framework
+
+-> Spring Boot is part of Spring Framework only, but it reduces configurations required in application development.
+
+-> All Spring Framwork modules we can use with Spring Boot also
+
+-> What type of applications we can develop using spring framework, same type of applications can be developed using Spring Boot with minimal configurations.
+
+
+Features of Spring Boot
+------------------------
+1) Minimal or Less Spring Based Configuration
+
+2) Starter POMs (to simply build configuration)
+
+3) Embedded Servers to run Web Apps
+
+Note : We can deploy Spring Boot application to Extneral Servers also.
+
+4) Production Ready Features (health check, metrics, Heap dump, thread dump and configProps) provided with Actuators
+
+5) Auto Configuration (It will guess configuration required to run our application and will do that configuration as per our app requirement)
+
+6) No Xml configurations required
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,203 @@
+Yesterday's session : CRUD operations in Web application
+
+Today's session : Thymeleaf Intro & Example
+----------------------------------------------------------
+
+-> Spring Web MVC module we are using to develop web applications.
+
+-> In Spring Web MVC module we are using JSP as a presentation technology
+
+-> Traditionally this jsp is the default choice for generating html files while building web applications.
+
+-> JSP is a very matured technology
+
+Important points to know about JSP
+----------------------------------
+-> JSP is not a template engine it will not render web pages directley on browser
+
+-> JSP files will be converted into servlet to produce response on the browser
+
+Thymeleaf
+----------
+-> Thymleaf is a true template engine which takes HTML file, parse it and then produce web content on browser directly.
+
+-> Thymeleaf is more like HTML view
+
+-> Using Thymeleaf we can display dynamic data in HTML files.
+
+-> Spring Boot supports for Thymeleaf as a presentation technology
+
+Working with Thymeleaf in Spring Boot
+-------------------------------------
+To use Thmeleaf in our project Spring Boot provided below starter 
+
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-thymeleaf<artifactId>
+</dependency>
+
+Note: We no need to do any other configurations to work with thymeleaf. Spring Boot will inject all required configurations to work with thymeleaf.
+
+
+Steps to develop SB application with Thymeleaf
+---------------------------------------------
+-> Create Spring Boot application with below dependencies
+	
+	a)web starter
+	b)thmeleaf starter
+	c)devtools
+
+-> Create Controller class with required methods
+
+-> Create HTML view file using Thymeleaf Template
+
+Location of view : src/main/resources/templates
+
+Note: View file extension .html only
+
+-> Configure Server Port & Run application
+
+
+-------------------------------WelcomeController.java-----------------------------
+@Controller
+public class WelcomeController {
+
+	@GetMapping("/welcome")
+	public String displayWelcomeMsg(Model model) {
+		String msgTxt = "Welcome to Ashok IT";
+		model.addAttribute("msg", msgTxt);
+		return "index";
+	}
+
+}
+-------------------------------index.html--------------------------------------------
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+Without Thymeleaf : <h1>${msg}</h1>
+
+With Thymeleaf : <h1 th:text="${msg}"></h1>
+
+</body>
+</html>
+----------------------------------------------------------------------------------
+
+
+
+Thymeleaf Form Example
+-----------------------
+
+------------------------------User.java---------------------------------------
+@Data
+public class User {
+
+	private String fname;
+	private String lname;
+	private String email;
+
+}
+----------------------------UserController.java------------------------------
+@Controller
+public class UserController {
+
+	@GetMapping("/")
+	public String index(Model model) {
+		User userObj = new User();
+		model.addAttribute("user", userObj);
+		return "index";
+	}
+	
+	@PostMapping("/saveUser")
+	public String handleSubmitBtn(@ModelAttribute("user") User user, Model model) {
+		System.out.println(user);
+		return "data";
+	}
+
+}
+------------------------------index.html--------------------------------------
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3> Save User Here </h3>
+
+	<form th:action="@{/saveUser}" th:object="${user}" method="POST">
+		<table>
+			<tr>
+				<td>First Name:</td>
+				<td><input type="text" th:field="*{fname}"/></td>
+			</tr>
+			<tr>
+				<td>Last Name:</td>
+				<td><input type="text" th:field="*{lname}"/></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input type="text" th:field="*{email}"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Save User"/></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>
+------------------------------------------data.html---------------------------------
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<table>
+		<tr>
+			<td>First Name:</td>
+			<td><p th:text="${user.fname}" /></td>
+		</tr>
+		<tr>
+			<td>Last Name:</td>
+			<td><p th:text="${user.lname}"/></td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td><p th:text="${user.email}"/></td>
+		</tr>
+	</table>
+	
+	<a href="/">Go Back</a>
+
+</body>
+</html>
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

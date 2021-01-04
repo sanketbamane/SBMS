@@ -1,0 +1,38 @@
+Yesterdays' session : Creating boot app using IDE
+
+Today's session : Internals of Spring Boot
+----------------------------------------------------------
+
+-> When we create Spring Boot application, it provides one start class by default
+
+-> Spring Boot application execution will start from that    class only.
+
+-> Spring Boot start class is also called as Main class in    Spring Boot application.
+
+-> Start class contains main method, that is entry point    for our boot application execution.
+
+---------------------------------------------------------
+@SpringBootApplication
+public class Application{
+
+   public static void main(String[] args){
+	SpringApplication.run(Application.class, args);
+   }
+}
+-----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

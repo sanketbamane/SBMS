@@ -1,0 +1,236 @@
+Last Session : First App Development using Spring Data JPA
+-----------------------------------------------------------
+
+-> To perform persistent operations we have below 2 interfaces in Data JPA
+
+		1) CrudRepository (curd operations methods)
+		2) JpaRepository (curd operation methods + pagination + sorting)
+
+
+
+Methods Available in CrudRepository
+-----------------------------------
+save (T entity) : To insert record
+
+findById (Serializable id) : To retrieve record using Primary Key value
+
+findAllById(Iterable ids) : To retrieve records using multiple primary keys
+
+findAll ( ) : To retrieve all records availabel in table
+
+delete(T entity) : To delete record based on entity
+
+deleteById(Serializable id) : To delete record based on Primary Key
+
+deleteAllByIds(Iterable ids) : To delete multiple records based on primary keys
+
+deleteAll ( ) : To delete all records available in table
+
+exists( ) : To check weather record is presented or not
+
+count ( ) : To get total records count from table
+
+
+
+Note: In Data JPA repositories we don't have seperate method for updating record. For updating also we can use save( ) method.
+
+-> When we call save( ) method with entity object as parameter, with given primary key value if record is present it will update else it will insert.
+----------------------------------------------------------------------------
+package com.ashokit.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "EMP_DTLS")
+public class EmpDtlsEntity {
+
+	@Id
+	@Column(name = "E_ID")
+	private Integer empId;
+
+	@Column(name = "E_NAME")
+	private String empName;
+
+	@Column(name = "E_SAL")
+	private Double empSalary;
+
+}
+------------------------------------------------------------------------------------
+package com.ashokit.repository;
+
+import java.io.Serializable;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.ashokit.entity.EmpDtlsEntity;
+
+public interface EmpDtlsRepository extends CrudRepository<EmpDtlsEntity, Serializable> {
+
+}
+-------------------------------------------------------------------------------------
+package com.ashokit.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ashokit.entity.EmpDtlsEntity;
+import com.ashokit.repository.EmpDtlsRepository;
+
+@Service
+public class EmpDtlsService {
+
+	@Autowired
+	private EmpDtlsRepository empDtlsRepo;
+
+	public void saveEmp() {
+
+		EmpDtlsEntity entity = new EmpDtlsEntity();
+		entity.setEmpId(103);
+		entity.setEmpName("Orlen");
+		entity.setEmpSalary(45000.00);
+
+		empDtlsRepo.save(entity);
+	}
+
+	public void getEmpById() {
+		Optional<EmpDtlsEntity> findById = empDtlsRepo.findById(102);
+
+		if (findById.isPresent()) {
+			EmpDtlsEntity entity = findById.get();
+			System.out.println(entity);
+		} else {
+			System.out.println("Record Not Found With Given ID");
+		}
+	}
+
+	public void getAllEmps() {
+		Iterable<EmpDtlsEntity> findAll = empDtlsRepo.findAll();
+		findAll.forEach(entity -> {
+			System.out.println(entity);
+		});
+	}
+
+	public void deleteEmp() {
+		empDtlsRepo.deleteById(103);
+	}
+
+	public void updateEmp() {
+
+		EmpDtlsEntity entity = new EmpDtlsEntity();
+		entity.setEmpId(102);
+		entity.setEmpName("Smith");
+		entity.setEmpSalary(30000.00);
+
+		empDtlsRepo.save(entity);
+
+	}
+
+}
+---------------------------------------------------------------------------------------
+package com.ashokit;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.ashokit.service.EmpDtlsService;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+
+		EmpDtlsService empDtlsService = context.getBean(EmpDtlsService.class);
+		// empDtlsService.saveEmp();
+		// empDtlsService.getEmpById();
+		// empDtlsService.getAllEmps();
+		// empDtlsService.deleteEmp();
+		empDtlsService.updateEmp();
+
+		context.close();
+	}
+
+}
+package com.ashokit;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.ashokit.service.EmpDtlsService;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+
+		EmpDtlsService empDtlsService = context.getBean(EmpDtlsService.class);
+		// empDtlsService.saveEmp();
+		// empDtlsService.getEmpById();
+		// empDtlsService.getAllEmps();
+		// empDtlsService.deleteEmp();
+		empDtlsService.updateEmp();
+
+		context.close();
+	}
+
+}
+----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

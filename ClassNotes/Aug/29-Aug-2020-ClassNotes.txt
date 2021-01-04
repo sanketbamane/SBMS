@@ -1,0 +1,16 @@
+Yesterday's session : Banner & Runners in Spring Boot
+-----------------------------------------------------
+
+Requirement
+-------------
+Develop Spring Boot standalone application to read products data from CSV (Comma seperted values) file and write data into another csv file using price filter.
+
+input data
+----------
+101,keyboard,1200.00
+102,mouse,750.00
+103,RAM,4000.00
+104,CPU,9000.00
+105,HD,4500.00
+
+Filter Condition : Price grater than 3000.00

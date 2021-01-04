@@ -1,0 +1,139 @@
+Last session : First Form App Development
+
+Today's session : Spring MVC Form Tag library
+----------------------------------------------
+
+-> Spring MVC module provided form tag library
+
+-> Using Spring MVC Form tag library tags we can develop forms easily
+
+Spring Mvc Form Taglibrary Tags
+-------------------------------
+-> In order to use MVC Form tags in view file, we should include that using taglib directive
+
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+<form:form> : To display form in presentation file
+
+<form:input> : To display input textfiled
+
+<form:password> : To display password field
+
+<form:radioButton> : To display one radio button
+
+<form:radioButtons> : To display multiple radioButtons
+
+<form:checkBox> : To display one checkbox
+
+<form:checkBoxes> : To display multiple checkboxes
+
+<form:select> : To display dropdown
+
+<form:option> : To display one option in dropdown
+
+<form:options/> : To display multiple options in dropdown
+
+<form:hidden> : To add hidden variable in form
+
+--------------------------Example-------------------------------------
+package com.ashokit.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.ashokit.domain.Customer;
+
+@Controller
+public class CustomerController {
+
+	@GetMapping("/customer")
+	public String loadForm(Model model) {
+		Customer customerObj = new Customer();
+		model.addAttribute("customer", customerObj);
+		return "index";
+	}
+
+	@PostMapping("/customer")
+	public String handleSubmitBtn(Customer customer, Model model) {
+		
+		model.addAttribute("customerObj", customer);
+		
+		return "data";
+	}
+
+}
+-------------------------------------------------------------------------------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>Customer Details</h3>
+
+	<form:form action="customer" method="POST" modelAttribute="customer">
+		<table>
+			<tr>
+				<td>Customer Name : </td>
+				<td><form:input path="customerName"/></td>
+			</tr>
+			<tr>
+				<td>Customer Email : </td>
+				<td><form:input path="customerEmail"/></td>
+			</tr>
+			<tr>
+				<td>Customer Phno : </td>
+				<td><form:input path="customerPhno"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Save Customer"/></td>
+			</tr>
+		</table>
+	</form:form>
+
+</body>
+</html>
+----------------------------------------------------------------------------------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<table>
+		<tr>
+			<td>Customer Name :</td>
+			<td>${customerObj.customerName}</td>
+		</tr>
+		<tr>
+			<td>Customer Email :</td>
+			<td>${customerObj.customerEmail}</td>
+		</tr>
+		<tr>
+			<td>Customer Phno :</td>
+			<td>${customerObj.customerPhno}</td>
+		</tr>
+	</table>
+
+	<a href="customer">Go Back</a>
+
+</body>
+</html>
+---------------------------------------------------------------------------------
+
+

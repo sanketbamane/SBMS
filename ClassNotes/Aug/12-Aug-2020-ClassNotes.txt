@@ -1,0 +1,50 @@
+Yesterday's session : Internals of run( ) method
+
+Today's session : @SpringBootApplication annotation
+----------------------------------------------------------
+
+-> Start class is the entry point for spring boot application exeuction
+
+-> Start class contains a main method... in that we are calling SpringApplication.run(...) method
+
+What is happending inside run(..)  method
+-----------------------------------------
+Spring Boot application boot strapping logic will execute
+as part run ( ) method
+
+
+How IOC will start in Spring Boot?
+-----------------------------------
+-> SpringApplication.run( .. ) method contains logic to start IOC container.
+
+-> Spring Boot will start IOC container in 3 different ways
+
+a) Reactive approach :(AnnotationConfigReactiveWebServerApplicationContext)
+	
+b) Web Servlet approach : (AnnotationConfigServletWebServerApplicationContext)
+
+c) Default Standalone approachs	: (AnnotationConfigApplicationContext)
+
+Note: Based on our boot application type, respective class will be loaded and will be instantiated then IOC will start.
+
+Note: Based on starter pom in pom.xml it will understand type of project
+
+Starter Type to Decide Application Type
+--------------------------------------
+spring-boot-starter : Default standalone application (priority-1)
+
+spring-boot-starter-web : Web Servlet Application (priority-2)
+
+spring-boot-starter-webflux : Reactive Application (priority-3)
+
+
+
+
+
+
+
+
+
+
+
+

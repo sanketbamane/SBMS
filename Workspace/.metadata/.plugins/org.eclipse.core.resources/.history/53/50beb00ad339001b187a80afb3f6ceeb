@@ -1,0 +1,9 @@
+package com.ashokit.entity;
+
+public class StockPrice {
+
+	private Integer stockPriceId;
+	private String companyName;
+	private Double stockCost;
+
+}

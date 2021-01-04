@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 packages to &apos;26-SB-MVC-Book-Form-H2-DB-App/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;25-SB-MVC-Form-H2-DB-App&apos;&#x0D;&#x0A;- Destination element: &apos;26-SB-MVC-Book-Form-H2-DB-App/src/main/java&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     25-SB-MVC-Form-H2-DB-App/src/main/java/com.ashokit.entity&#x0D;&#x0A;     25-SB-MVC-Form-H2-DB-App/src/main/java/com.ashokit.repository&#x0D;&#x0A;     25-SB-MVC-Form-H2-DB-App/src/main/java/com.ashokit.controller" description="Copy packages" destination="=26-SB-MVC-Book-Form-H2-DB-App/src\/main\/java" element1="/src\/main\/java&lt;com.ashokit.entity" element2="/src\/main\/java&lt;com.ashokit.repository" element3="/src\/main\/java&lt;com.ashokit.controller" flags="589830" fragments="3" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1602821213541" version="1.0"/>
+</session>

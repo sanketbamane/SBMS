@@ -1,0 +1,58 @@
+What is MVC
+
+What is Front Controller
+
+Spring MVC Module Introduction
+
+Types of applications we can develop using MVC
+
+Spring MVC Architecture
+-------------------------------------------------
+
+Q-1) Why Front Controller Required ?
+-------------------------------------
+Ans: Front Controller is required to perform Pre processing and post processing for every request
+
+We no need to write common logics in all controller. Common Logics are provided by Front Controller.
+
+-> When we work with plain Spring MVC, we have to configure front controller in web.xml file or in Java Based Config File
+
+-> When we develop web application using Spring Boot it will auto configure web components required for our application.
+
+Q-2) What is the use of Handler Mapper ?
+-----------------------------------------
+A) Handler Mapper will identify Request Handler.
+
+-> When user sends request, handler mapper will identify which request should be processed by which controller method. 
+
+-> Based on Request URL pattern it will identify controller method
+
+Q-3) What is Controller?
+------------------------
+-> It is used to handle user requests
+
+-> It is called as Request Handler
+
+Q-4) What is View Resolver?
+----------------------------
+-> It is used to identify view file based on prefix and suffix
+
+-> Controller will return logical view name
+
+-> View Resolver will identify physical location of view file
+
+Q-5) What is View Component?
+----------------------------
+-> IT is used to render model data in view file
+
+
+Registration Process
+------------------------
++91-6301921083(whatsapp) - Want to enroll for 05-SBMS
+
+
+
+
+
+
+

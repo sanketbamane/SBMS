@@ -1,0 +1,50 @@
+Yesterday's session : Context-Path In Spring Boot App
+-------------------------------------------------------
+
+-> By default context-path will be empty in spring boot
+
+-> We can configure context-path for spring boot application
+
+	spring.servlet.context-path=/IES
+
+-> Once we configure context-path, we have to specify that context-path in URL to access resources (controller methods).
+-------------------------------------------------------------------------
+
+Today's session : Sending Data From Controller To UI
+---------------------------------------------------------
+
+-> When client send a request, controller method is responsible to process that request and send response to client
+
+-> Controller can send response to client in 2 ways
+
+	1) With View (Using Presentation File)
+	2) Raw Response
+
+
+-> Model object is used to send response to client in view file
+
+-> In Model object we will store the data in the form of key-value format
+
+-> The data that is stored in model object can be accessed in view file using key.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

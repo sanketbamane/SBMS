@@ -1,0 +1,72 @@
+Yesterday's session : Generators
+----------------------------------------------------
+
+-> Generators are used to generate the value for Primary Key Column
+
+-> There are several built-in generators are available in Hibernate
+
+-> When we are working with Oracle DB by default it will use HIBERNATE_SEQUENCE generator
+
+
+-> Sequences will be used to generate the value for Primary Key columns
+
+-> For Every Primary Key Column, dedicated sequence will be maintained.
+
+
+SEQUENCE CREATION
+-----------------
+CREATE SEQUENCE <SEQ-NAME>
+START WITH 1
+INCREMENT BY 1;
+
+Getting Next Value from the Sequence
+------------------------------------
+select seq-name.nextval from dual;
+
+--------------------------------------------
+
+@Data
+@Entity
+@Table(name = "ORDERS_TBL")
+public class Order {
+
+	@Id
+	@Column(name = "ORDER_ID")
+	@SequenceGenerator(sequenceName = "ORDER_ID_SEQ", name = "abc-SEQ", allocationSize = 1)
+	@GeneratedValue(generator = "abc-SEQ", strategy = GenerationType.SEQUENCE)
+	private Integer orderId;
+
+	@Column(name = "ORDER_BY")
+	private String orderBy;
+
+	@Column(name = "ORDER_STATUS")
+	private String orderStatus;
+
+}
+-------------------------------------------------------
+
+
+OD1
+OD2
+OD3
+OD4
+
+IBM001
+IBM002
+IBM003
+IBM004
+
+CTS01
+CTS02
+CTS03
+
+
+
+
+
+
+
+
+
+
+

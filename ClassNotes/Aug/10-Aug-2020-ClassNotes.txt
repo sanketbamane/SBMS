@@ -1,0 +1,61 @@
+Last session : Boot Application folder structure
+
+Today's session : Creating Boot app using STS IDE
+--------------------------------------------------
+
+-> We can create boot applications in 2 ways
+
+	1) Initiazer Website (start.spring.io)
+	2) IDE
+
+Note: If we use IDE also, internally our IDE will communicate with start.spring.io to create boot application.
+
+
+-> If we are creating boot application using IDE Internet connection is mandatory because our IDE will communicate with start.spring.io website.
+
+
+-> Once project got created, we can run directley.
+
+Note :  Boot application execution starts from main method.
+
+Right click on project --> Run As --> Boot application
+
+
+--------------Boot Start Class-------------------------
+@SpringBootApplication
+public class Application {
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+}
+------------------------------------------------------
+
+What is the purpose of SpringApplication.run(..) method
+--------------------------------------------------------
+-> In SpringBoot application main method we are calling this SpringApplication.run(..) method
+
+-> This run method is called as Boot Strapping Method in Spring Boot.
+
+-> This method will perform below operations
+
+	a) Profile Checking
+	b) Stop Watch Starting
+	c) Printing Banner
+	d) Start IOC Container
+	e) Call Runners
+	f) Stop Watch- End (calculates how much time taken)
+	g) Returns IOC reference (ConfigurableAppCtxt)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Book.java&apos; to &apos;41-SB-REST-POST-CLIENT-WebClient-App/src/main/java/com.ashokit.request&apos;&#x0D;&#x0A;- Original project: &apos;33-SB-REST-POST-REQ-App&apos;&#x0D;&#x0A;- Destination element: &apos;41-SB-REST-POST-CLIENT-WebClient-App/src/main/java/com.ashokit.request&apos;&#x0D;&#x0A;- Original element: &apos;com.ashokit.Book.java&apos;" description="Copy compilation unit" destination="=41-SB-REST-POST-CLIENT-WebClient-App/src\/main\/java&lt;com.ashokit.request" element1="/src\/main\/java&lt;com.ashokit{Book.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1606621573229" units="1" version="1.0"/>
+</session>

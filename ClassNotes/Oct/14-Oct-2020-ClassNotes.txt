@@ -1,0 +1,173 @@
+Yesterday's session : Student Registration Form
+
+Today's session : Registration Form with dynamic values
+-------------------------------------------------------
+
+-> We developed form with below fields
+	
+	a)text fields
+	b)radio buttons
+	c)dropdown
+	d)checkboxes
+
+-> In Yesterday's session we have hard coded radiobutton options, dropdown options and checkboxes options....
+
+-> Instead of hard coding we can populate values dynamically
+
+-> In order to populate values to form fields we will use Model object.....
+
+-> Model object is used to send the data from Controller to UI
+
+
+--------------------------Today's example-------------------------------------------------
+
+package com.ashokit.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class StudentService {
+	
+	public List<String> getGenders(){
+		List<String> genders = new ArrayList<>();
+		genders.add("Male");
+		genders.add("Fe-Male");
+		return genders;
+	}
+	
+	public List<String> getCourses(){
+		List<String> courses = new ArrayList<>();
+		courses.add("Java");
+		courses.add("Testing");
+		courses.add("Python");
+		courses.add("Angular");
+		return courses;
+	}
+	
+	public List<String> getTimings(){
+		List<String> timings = new ArrayList<>();
+		timings.add("Morning");
+		timings.add("Afternoon");
+		timings.add("Evening");
+		return timings;
+	}
+
+}
+------------------------------------------------------------------------------------------
+package com.ashokit.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.ashokit.binding.Student;
+import com.ashokit.service.StudentService;
+
+@Controller
+public class StudentController {
+
+	@Autowired
+	private StudentService studentService;
+
+	@GetMapping("/student")
+	public String loadForm(Model model) {
+
+		Student s = new Student();
+
+		model.addAttribute("student", s);
+		model.addAttribute("genders", studentService.getGenders());
+		model.addAttribute("courses", studentService.getCourses());
+		model.addAttribute("timings", studentService.getTimings());
+
+		return "registration";
+	}
+
+	@PostMapping("/studentReg")
+	public String handeRegisterBtn(Student s, Model model) {
+		System.out.println(s);
+
+		model.addAttribute("name", s.getFname() + " " + s.getLname());
+
+		return "success";
+	}
+
+}
+
+---------------------------------------------------------------------------------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>Student Registration</h3>
+
+	<form:form action="studentReg" method="POST" modelAttribute="student">
+
+		<table>
+			<tr>
+				<td>First Name:</td>
+				<td><form:input path="fname"/> </td>
+			</tr>
+			<tr>
+				<td>Last Name:</td>
+				<td><form:input path="lname"/> </td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><form:input path="email"/> </td>
+			</tr>
+			<tr>
+				<td>Gender:</td>
+				<td>
+					<%-- <form:radiobutton path="gender" value="M"/> Male
+					<form:radiobutton path="gender" value="F"/> Fe-Male --%>
+					<form:radiobuttons path="gender" items="${genders}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Course:</td>
+				<td>
+					<form:select path="course">
+						<%-- <form:option value="">-Select-</form:option>
+						<form:option value="java">Java</form:option>
+						<form:option value=".net">.Net</form:option>
+						<form:option value="testing">Testing Tools</form:option> --%>
+						<form:options items="${courses}" />
+					</form:select>
+				</td>
+			</tr>
+			<tr>
+				<td>Timings:</td>
+				<td>
+					<%-- <form:checkbox path="timings" value="morning"/>Morning
+					<form:checkbox path="timings" value="afternoon"/>Afternoon
+					<form:checkbox path="timings" value="evening"/>Evening --%>
+					<form:checkboxes path="timings" items="${timings}" />
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Register" /></td>
+			</tr>
+		</table>
+
+	</form:form>
+
+
+</body>
+</html>
+---------------------------------------------------------------------------------------------

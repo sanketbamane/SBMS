@@ -1,0 +1,153 @@
+Yesterday's session : Spring Form Tag Library
+---------------------------------------------
+Today's session : Registration Form Development using Form Tag library
+------------------------------------------------------------------------
+
+-> Spring MVC module provided several tags to simplify form development
+
+
+Steps to develop Student Registration Form
+------------------------------------------
+1) Create Spring Boot Application with below dependencies
+
+	a)spring-boot-starter-web
+	b)tomcat-embed-jasper
+	c)project lombok
+	d)devtools
+
+2) Configure below properties in application.properties file
+
+	a) server-port
+	b) view-resolver
+
+3) Create Form Binding Class
+
+4) Create Controller with required methods
+
+5) Create View Files
+
+6) Run application and test it.
+
+---------------------StudentController.java-------------------------
+package com.ashokit.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.ashokit.binding.Student;
+
+@Controller
+public class StudentController {
+
+	@GetMapping("/student")
+	public String loadForm(Model model) {
+
+		Student s = new Student();
+
+		model.addAttribute("student", s);
+
+		return "registration";
+	}
+
+	@PostMapping("/studentReg")
+	public String handeRegisterBtn(Student s, Model model) {
+		System.out.println(s);
+
+		model.addAttribute("name", s.getFname() + " " + s.getLname());
+
+		return "success";
+	}
+
+}
+
+--------------------registration.jsp---------------------------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>Student Registration</h3>
+
+	<form:form action="studentReg" method="POST" modelAttribute="student">
+
+		<table>
+			<tr>
+				<td>First Name:</td>
+				<td><form:input path="fname"/> </td>
+			</tr>
+			<tr>
+				<td>Last Name:</td>
+				<td><form:input path="lname"/> </td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><form:input path="email"/> </td>
+			</tr>
+			<tr>
+				<td>Gender:</td>
+				<td>
+					<form:radiobutton path="gender" value="M"/> Male
+					<form:radiobutton path="gender" value="F"/> Fe-Male
+				</td>
+			</tr>
+			<tr>
+				<td>Course:</td>
+				<td>
+					<form:select path="course">
+						<form:option value="">-Select-</form:option>
+						<form:option value="java">Java</form:option>
+						<form:option value=".net">.Net</form:option>
+						<form:option value="testing">Testing Tools</form:option>
+					</form:select>
+				</td>
+			</tr>
+			<tr>
+				<td>Timings:</td>
+				<td>
+					<form:checkbox path="timings" value="morning"/>Morning
+					<form:checkbox path="timings" value="afternoon"/>Afternoon
+					<form:checkbox path="timings" value="evening"/>Evening
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Register" /></td>
+			</tr>
+		</table>
+
+	</form:form>
+
+
+</body>
+</html>
+-------------------------------success.jsp--------------------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>Hi ${name}, Your Registration Completed Successfully. We will
+		get in touch with you very soon.</h3>
+</body>
+</html>
+-----------------------------------------------------------------
+
+
+
+
+

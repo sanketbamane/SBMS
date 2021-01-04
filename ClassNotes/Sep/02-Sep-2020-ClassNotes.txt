@@ -1,0 +1,92 @@
+Yesterday's session : Best practises to be followed
+
+Today's session: Spring Data JPA Intro & Env Setup
+--------------------------------------------------------------
+-> Spring Data JPA is used to perform CURD operations
+
+-> While working with Persistence layer, we have to perform some common operations in every table.
+
+-> For common operations also, we have to write methods in all DAO classes. It will become boiler plate code.
+
+
+-------------DAO class using Spring ORM--------------------------'
+
+public interface UserMasterDao{
+
+    public boolean save(UserMasterEntity entity);
+    public UserMasterEntity findById(Integer userId);
+    public List<UserMasterEntity> findAll( );
+    public boolean deleteById(Integer userId);
+    public boolean deleteAll( );
+    public boolean update(UserMasterEntity entity);
+}
+---------------------------------------------------------------
+public class UserMasterDaoImpl implements UserMasterDao{
+
+   @Autowired
+   private HibernateTemplate ht;
+
+   public boolean save(UserMasterEnity entity){
+	UserMasterEntity saved = ht.save(entity);
+	return saved.getUserId()!=null;
+   }
+
+   public UserMasterEntity findById(Integer userId){
+	return ht.find(userId);
+  }
+
+   public List<UserMasterEntity> findAll(){
+	String hql = "from UserMasterEntity";
+        return	ht.execute(hql);
+   }
+
+    //impleemnt remaining methods
+
+}
+----------------------------------------------------------------
+
+-> If we observe above implementation class we are writing logic for curd operations.
+
+-> Same kind of logic we need to write in all DAO impl classes. That is calle as Boiler plate code.
+
+-> To avoid this problem Spring Data JPA came into picture.
+
+-------- Persistence Logic with Data JPA---------------------------
+
+public interface UserMasterRepository extends CrudRepository<E,ID>{
+	
+}
+--------------------------------------------------------------------
+-> By using above interface (UserMasterRepository) we can perform curd operations with table
+
+
+Environment Setup
+-----------------
+1) Install Oracle Database Server Software
+
+2) Install SQL Developer (Oracle DB Client software)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

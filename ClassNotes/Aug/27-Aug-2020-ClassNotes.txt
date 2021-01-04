@@ -1,0 +1,62 @@
+Yesterday's class : @Configuration & @Bean
+--------------------------------------------------------------
+
+-> Below 2 annotations also can represent java class as Spring Bean.
+
+-> These 2 are class level annotations
+
+-> These annotations are part of Spring Web MVC module
+
+-> @Controller
+-> @RestController
+
+
+1) Spring vs Spring Boot
+
+2) Spring Boot Advantages
+
+3) Limitations of Spring Boot
+
+4) Spring Boot Application Creation
+
+5) Spring Boot Application Folder Structure
+
+6) Starter Poms
+
+7) SpringApplication.run(..) method internals
+
+8) @SpringBootApplication annotation
+
+9) AutoConfiguration
+
+10) ComponentScanning
+
+12) IOC Container
+
+13) Dependency Injection
+	- Setter Injection
+	- Constructor Injection
+	- Field Injection
+14) Autowiring
+
+15) What is Spring Bean
+
+16) How to represent java class as Spring Bean
+==============================================================
+Autowiring modes
+@Qualifer
+banner in spring boot
+runners in Spring Boot
+
+
+
+
+
+
+
+
+
+
+
+
+

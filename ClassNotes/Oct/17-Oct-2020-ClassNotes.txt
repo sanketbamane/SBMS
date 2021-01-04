@@ -1,0 +1,255 @@
+Yesterday's session : Web App with H2 DB Integration
+----------------------------------------------------
+Today's session : Edit & Delete functionalities in Web App
+----------------------------------------------------------
+
+-> We are displaying all books in jsp file in table format
+
+-> For every book record we are going to add 'Edit' & 'Delete' hyperlinks
+
+-> When user click on 'Edit', record should be displayed in editable mode then user can update that record
+
+-> When user click on 'Delete', it should display confirmation pop-up
+   window
+
+-> When user click on 'OK' in popup then record should be deleted from database.
+
+
+---------------------------BookController.java----------------------------------
+package com.ashokit.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.ashokit.entity.BookEntity;
+import com.ashokit.repository.BookRepository;
+
+@Controller
+public class BookController {
+
+	@Autowired
+	private BookRepository bookRepo;
+
+	/**
+	 * This method is used to load form
+	 * 
+	 * @param model
+	 * @return String
+	 */
+	@GetMapping(value = { "/", "/addBook" })
+	public String loadForm(Model model) {
+		BookEntity bookObj = new BookEntity();
+		model.addAttribute("book", bookObj);
+		return "addBook";
+	}
+
+	@GetMapping(value = "/editBook")
+	public String editBook(@RequestParam("bid") Integer bookId, Model model) {
+		Optional<BookEntity> findById = bookRepo.findById(bookId);
+		if (findById.isPresent()) {
+			BookEntity bookObj = findById.get();
+			model.addAttribute("book", bookObj);
+		}
+		return "addBook";
+	}
+
+	/**
+	 * This method is used to save book data
+	 * 
+	 * @param book
+	 * @param model
+	 * @return String
+	 */
+	@PostMapping(value = "/saveBook")
+	public String saveBook(@ModelAttribute("book") BookEntity book, Model model) {
+
+		boolean isNewRecord = false;
+
+		if (book.getBookId() == null) {
+			isNewRecord = true;
+		}
+
+		BookEntity savedEntity = bookRepo.save(book);
+
+		if (isNewRecord && savedEntity.getBookId() != null) {
+			model.addAttribute("succMsg", "Book Stored Successfully");
+
+		} else if (!isNewRecord) {
+			model.addAttribute("succMsg", "Book Updated Successfully");
+
+		} else {
+			model.addAttribute("failMsg", "Failed to store book");
+		}
+		return "addBook";
+	}
+
+	/**
+	 * This method is used to display all books details
+	 * 
+	 * @param model
+	 * @return String
+	 */
+	@GetMapping(value = "/viewBooks")
+	public String viewBooks(Model model) {
+		List<BookEntity> bookList = bookRepo.findAll();
+		model.addAttribute("books", bookList);
+		return "viewBooks";
+	}
+
+	@GetMapping(value = "/deleteBook")
+	public String deleteBook(@RequestParam("bid") Integer bookId, RedirectAttributes rd) {
+
+		boolean isDeleted = false;
+
+		try {
+			bookRepo.deleteById(bookId);
+			isDeleted = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (isDeleted) {
+			rd.addFlashAttribute("succMsg", "Book Deleted Successfully");
+		}
+
+		return "redirect:viewBooks";
+	}
+
+}
+-------------------------------------addBook.jsp----------------------------------------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>Add Book Here</h3>
+
+	<font color='green'>${succMsg}</font>
+	<font color='red'>${failMsg}</font>
+
+	<form:form action="saveBook?bookId=${book.bookId}" method="POST" modelAttribute="book">
+
+		<table>
+			<tr>
+				<td>Book Name:</td>
+				<td><form:input path="bookName" /></td>
+			</tr>
+
+			<tr>
+				<td>Book Price:</td>
+				<td><form:input path="bookPrice" /></td>
+			</tr>
+
+			<tr>
+				<td>Author Name:</td>
+				<td><form:input path="authorName" /></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Submit" /></td>
+			</tr>
+
+		</table>
+
+	</form:form>
+
+	<a href="viewBooks">View All Books</a>
+</body>
+</html>
+-------------------------------------------------viewBooks.jsp-------------------------------------
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script>
+	function confirmDelete(){
+		return confirm('Are you sure, you want to delete ?');
+	}
+
+</script>
+
+</head>
+<body>
+
+	<p><font color='green'>${succMsg}</font></p>
+
+	<a href="/">+Add New Book</a>
+	<table>
+		<thead>
+			<tr>
+				<th>Book Id</th>
+				<th>Book Name</th>
+				<th>Book Price</th>
+				<th>Author Name</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<c:forEach items="${books}" var="b">
+				<tr>
+					<td>${b.bookId}</td>
+					<td>${b.bookName}</td>
+					<td>${b.bookPrice}</td>
+					<td>${b.authorName}</td>
+					<td>
+						<a href="editBook?bid=${b.bookId}">Edit</a>
+						<a href="deleteBook?bid=${b.bookId}" onclick="return confirmDelete()">Delete</a>
+					</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+
+</body>
+</html>
+-------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

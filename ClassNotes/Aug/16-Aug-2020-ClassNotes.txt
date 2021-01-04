@@ -1,0 +1,60 @@
+Yesterday's session : What is @SpringBootApplication
+
+Today's session : IOC & DI
+--------------------------------------------------------------
+
+-> @SpringBootApplication annotation is equal to 3 annotations. They are
+
+1) @SpringBootConfiguration
+2) @EnableAutoConfiguration
+3) @ComponentScan
+
+What is IOC and DI?
+-------------------
+IOC is a principle which is used to manage and colloborate dependencies among the objects in our application.
+
+The process of injecting dependent bean object into target bean object is called as Dependency Injection.
+
+-> In Spring framework IOC will take care of Dependency Injection.
+
+-> We can perform Dependency Injection in 3 ways
+	1) Setter Injection
+	2) Constructor Injection
+	3) Field injection
+
+How to represent java class as Spring Bean?
+-------------------------------------------
+@Component
+@Service
+@Repository
+@Controller
+@RestController
+@Bean (method level)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

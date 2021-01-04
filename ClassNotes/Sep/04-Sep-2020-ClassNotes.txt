@@ -1,0 +1,113 @@
+Last session : Introduction to Spring Data JPA
+
+Today's session : ORM Basics
+--------------------------------------------------
+
+-> ORM stands for Object Relational Mapping
+
+-> ORM is a technique to develope Persistence Layer
+
+-> If we use ORM technique, we can deal with data in the form of objects
+
+How to achieve Object Relational Mapping?
+-----------------------------------------
+Java class will be mapped with database table to achive Object Relational Mapping
+
+
+Class Name ----------> Table Name
+
+Variable-1 ----------> Column-1
+
+Variable-2 ----------> Column-2
+
+---------------------------------------------------------------
+
+Creating Entity Classs
+-----------------------
+-> Any Java Class which is mapped with DB table is called as Entity class.
+
+-> To represent java class as Entity, we will use below annotation
+
+		@Entity
+
+-> We will use below annotations also in Entity class
+
+	@Table : To map class name with table name
+	@Id : To present primary key mapped variable
+	@Column : To map variable with column-name
+	
+-> If our class name and table name both are same then @Table annotation is optional
+
+-> If our variable name and column names both are same then @Column annotation is optional.
+
+Creating Repository using Data JPA
+----------------------------------------------
+-> Spring Data JPA provided repository interfaces to perform CURD operations.
+
+-> Below are the famous repositories available in Data JPA
+
+		1) CrudRepository
+		2) JPARepository
+
+-> CrudRepository is used to perform only Curd Operations
+
+-> JPARepository is used to perform 
+			Curd Operations + Pagination + Sorting
+
+-> To perform Curd Operations in our table we just need to create repository interface by extending from Data Jpa Repository interface.
+
+Ex:
+---
+public interface EmpDtlsRepository extends CrudRepository<T, ID>{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

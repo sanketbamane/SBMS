@@ -1,0 +1,20 @@
+package com.ashokit.rest;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ashokit.repository.StockPriceRepository;
+
+@RestController
+public class StockPriceRestController {
+	
+	private StockPriceRepository priceRepo;
+
+	@GetMapping("/getCost/{companyName}")
+	public ResponseEntity<Double> getCostByCompanyName(@PathVariable("companyName") String name) {
+		priceRepo.findByCompanyName(name);
+	}
+
+}

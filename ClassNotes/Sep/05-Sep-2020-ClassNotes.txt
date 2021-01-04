@@ -1,0 +1,75 @@
+Yesterday's session : Entity and Repository
+
+Today's session : First Application using Data JPA
+-------------------------------------------------------------------
+
+-> The Java class which is mapped with DB table is called as Entity Class.
+
+-> We will use below annotations in Entity class
+
+	@Entity
+	@Table
+	@Id
+	@Column
+
+-> To perform curd operations we will create Repository interface using Data JPA provided repositories
+		
+		- CrudRepository
+		- JpaRepository
+
+Steps to develop First Application Using Spring Data JPA
+----------------------------------------------------------
+-> Create a table in Database server
+
+CREATE TABLE EMP_DTLS
+(
+  E_ID NUMBER(5) PRIMARY KEY,
+  E_NAME VARCHAR(20),
+  E_SAL NUMBER(10,2)
+)
+
+-> Create Spring Boot application with below dependencies
+
+	1)spring-boot-starter-data-jpa
+	2)oracle-driver
+	3)project lombok
+
+-> Configure DataSource properties in application.properties file
+
+-> Create Java Class and Map with DB table
+
+-> Create Repository interface by extending from CrudRepository interface
+
+-> Create Service class and Inject Repository interface bean to call methods
+
+-> Test Service class methods using Boot start class main method.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+

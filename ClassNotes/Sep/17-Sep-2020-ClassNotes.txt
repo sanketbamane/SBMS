@@ -1,0 +1,82 @@
+Yesterdays' session: Generation Strategies
+------------------------------------------------
+Today's session : Connection Pooling
+----------------------------------------------------------------
+
+-> Connection Pooling is used to manage connections in our application.
+
+-> There are several connection pool providers are available in market
+
+	c3p0
+	dbcp
+	proflix
+	Hikari etc....
+
+-> When we add spring-boot-starter-jdbc it provides tomact-jdbc connection pool by default in Spring Boot 1.x version
+
+-> To configure Hikari Connection Pool in Spring Boot 1.x version we will exclude tomcat-jdbc and we will add hikari dependency like below
+
+<!-- exclude tomcat jdbc connection pool, use HikariCP -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jdbc</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
+
+<dependency>
+        <groupId>com.zaxxer</groupId>
+        <artifactId>HikariCP</artifactId>
+        <version>3.4.5</version>
+</dependency>
+
+-> In Spring Boot 2.x version, HIKARI CP is the default connection pool. We no need to add any dependency to configure Hikari CP.
+
+
+-> If we have any of below starter pom in pom.xml file then Hikari will be default connection pool for our project
+
+	1)spring-boot-starter-jdbc
+	2)spring-boot-starter-data-jpa
+
+
+-> We can customize Hikari CP properties in application.properties file
+
+spring.datasource.hikari.auto-commit=true
+spring.datasource.hikari.maximum-pool-size=30
+spring.datasource.hikari.idle-timeout=700000
+spring.datasource.hikari.minimum-idle=10
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

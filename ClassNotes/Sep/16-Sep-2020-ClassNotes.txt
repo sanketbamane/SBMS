@@ -1,0 +1,83 @@
+Yesterday's session : Custom Sequence in Data JPA
+-------------------------------------------------
+
+-> Sequence is used to generate values
+
+-> We will use sequence to generate value for primary key column
+
+-> For every primary key column we will create one sequence
+
+-> In Hibernate we have support for Custom Sequence
+
+-> To configure Custom Sequence we will use @SequenceGenerator annotation
+
+
+@SequenceGenerator(sequenceName="", name="", allocationSize="")
+@GeneratedValue(generator="", startegy="")
+private Integer orderId;
+-------------------------------------------------------------------
+
+CREATE SEQUENCE ORDER_ID_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+SELECT ORDER_ID_SEQ.NEXTVAL FROM DUAL;
+
+
+Note: Sequences are DB dependent
+
+Oracle db supports sequences where as mysql db will not support for sequences.
+
+
+-> To support mysql db primary keys, hibernate provided IDENTITY generator.
+
+
+
+Generation Strategy = AUTO
+==========================
+@GeneratedValue(strategy=GenerationType.AUTO)
+
+This strategy will work based on DB which is using in the application
+
+If we are using Oracle, it will use hibernate_sequence
+
+If we are using MySql, it will use identity generator
+
+
+Generation Strategy = IDENTITY
+==============================
+@GeneratedValue(strategy=GenerationType.IDENTITY)
+
+
+When we use this IDENTITY startegy it will expect DB to generate value for PK column.
+
+For MYSQL db we will use this strategy with AutoIncrement concept.
+
+Note: For Oracle DB we can't use this IDENTITY generator.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

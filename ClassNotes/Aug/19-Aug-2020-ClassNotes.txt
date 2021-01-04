@@ -1,0 +1,85 @@
+Yesterday's class : Dependency Injection
+
+Today's class  : DI Examples
+-------------------------------------------------------------------
+-> The process of injecting one class object into another class is called as Dependency Injection.
+
+-> IOC container is reponsible to perform Dependency Injection
+
+-> We can perform Dependency INjection in below 3 ways	
+
+		1) Setter Injection
+		2) Constructor Injection
+		3) Field Injection
+
+What is setter Injection?
+-------------------------
+The process of injecting dependent bean object into target bean object by calling target bean setter method.
+
+---------------------------------------------------------------
+public interface UserDao {
+
+	public String findNameById(Integer id);
+
+}
+------------------------------------------------------------------
+package com.ashokit.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class UserDaoImpl implements UserDao {
+
+	public UserDaoImpl() {
+		System.out.println("** UserDaoImpl :: Constructor **");
+	}
+
+	@Override
+	public String findNameById(Integer id) {
+		if (id == 101) {
+			return "John";
+		} else if (id == 102) {
+			return "Smith";
+		} else {
+			return null;
+		}
+	}
+}
+---------------------------------------------------------------
+package com.ashokit.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ashokit.dao.UserDao;
+
+@Service
+public class UserService {
+
+	public UserService() {
+		System.out.println("** UserService:: Constructor ** ");
+	}
+
+	private UserDao dao;
+
+	@Autowired
+	public void setUserDao(UserDao userDao) {
+		System.out.println("**setter method called**");
+		this.dao = userDao;
+	}
+
+	public void getName(Integer id) {
+		String name = dao.findNameById(id);
+		System.out.println(name);
+	}
+
+}
+--------------------------------------------------------------------
+
+
+
+
+
+
+
+

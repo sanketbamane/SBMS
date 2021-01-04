@@ -1,0 +1,49 @@
+Yesterday's session : Query Params & Path Params
+
+-> Query Params & Path Params are used to send data to server in URL
+
+-> To read Query Params we will use @RequestParam annotation
+
+-> To read Path Params we will use @PathVariable annotation
+--------------------------------------------------------------
+
+Form Based Application
+-----------------------
+1) Create Spring Boot application with below dependencies
+
+	1)spring-boot-starter-web
+	2)tomcat-embed-jasper
+	3)devtools
+	4)project lombok
+
+2) Configure below properties in application.properties file
+
+	1)server port
+	2)view resolver
+
+3) Create Form Binding Class (To hold form data)
+
+4) Create Controller class with methods to handle user requests
+
+5) Create Presentation files
+
+6) Run the application and test it.
+
+
+
+
+Tomorrow we have Docker class @ 4 PM IST
+Link i will send to your email today
+Tomorrow 9 AM class is not there.. we have 4 PM Class.
+
+
+
+
+
+
+
+
+
+
+
+

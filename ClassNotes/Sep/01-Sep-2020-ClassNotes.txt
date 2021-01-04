@@ -1,0 +1,173 @@
+Yesterday's session : CSV App Implementation
+
+Today's session : Persistent Layer Best Practises
+-------------------------------------------------------
+
+What is Persistent Layer?
+-------------------------
+Persistent Layer contains Components which are responsible to communicate with database.
+
+-> The components which are communicating with DB are called as DAO or Repository.
+
+-> DAO means Data Access Object
+
+Best Practises
+---------------
+-> When we are creating tables, columns and sequences we will use underscore(_) as a seperator in the names.
+
+Ex : EMP_DETAILS, USER_MASTER, CO_TRIGGERS
+
+-> Table names, column names and sequence names should not exceed 30 characters. If it is exceeding 30 characters we will remove vowels from that.
+
+Ex :  EMPLOYEE_DETAILS --> EMP_DTLS
+
+-> For Every table it is highly recommended to maintain primary key.
+    
+
+-> Primary Key is a constraint which is used to maintain unique data in the column. This PK constraint is combination of NOT NULL and UNIQUE constraint.
+
+-> For every table it is highly recommended to maintain auditing columns
+
+	CREATED_DT : To populate record created date
+	CREATED_BY : To populate who created that record
+	UPDATED_DT : To populate when record got updated
+	UPDATED_BY : To populate who updated that record
+
+-> For every table we should have dedicated DAO class
+
+	EMP_DTLS  --------------> EmpDtlsDao.java
+
+	CUSTOMER_MASTER  -------> CustomerMasterDao.java
+
+	PRODUCT_DTLS  ----------> ProductDtlsDao.java
+
+	CO_TRIGGERS -------------> CoTriggersDao.java
+
+-> Our Dao class name should represent Table Name to improve readability.
+
+-> Sequence name should represent column name
+
+	CUSTOMER_ID   ------------> CUSTOMER_ID_SEQ
+
+
+-> To develop persistence layer, we have several technologies and frameworks in java. They are
+
+	1) Java JDBC
+	2) Spring JDBC
+	3) Hibernate
+	4) Spring ORM
+	5) Spring Data JPA etc.....
+
+
+
+
+-> When we are working with Persistence layer, for every table we will create one DAO class.
+
+-> For every table we will have some common operations like INSERT, UPDATE, DELETE, RETRIEVE etc......
+
+
+In realtime common operations in table
+-------------------------------------
+1) insert a record
+
+2) update a record
+
+3) delete one record
+
+4) delete all records
+
+5) retrieve record using PK
+
+6) retrieve all records etc.....
+
+
+-> For above 6 operations we have to write 6 methods in DAO class.
+
+-> If we have 100 tables, then we will create 100 DAO classes, In 100 DAO classes we have to write 6 methods. Then total we are writing 600 methods to perform operations.
+
+-> Those 600 metods contains same logic. This can be called as Boiler plate code.
+
+-> If we have 3000 tables in project, then how many methods we need to write ?
+
+3000 tables ----> 3000 DAO classes
+
+Every DAO class contains ----> 6 methods
+
+3000 * 6  ==> 18000 methods
+
+-> If we use Spring Data JPA, it provides predefined methods for us to perform common operations in tables. We no need to write anything we just have to call the methods.
+
+
+Why Spring Data JPA
+-------------------
+It is used to avoid boiler plate code in Persistence layer. It provides methods to perform curd operations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

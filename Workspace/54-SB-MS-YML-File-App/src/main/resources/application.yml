@@ -1,0 +1,10 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: IES
+app:
+  properties:
+    welcomeMsg: Welcome to Ashok IT...!!
+    greetMsg: Good Morning...!!
+    stockPriceApiURL: http://www.nse.com/price/{name}

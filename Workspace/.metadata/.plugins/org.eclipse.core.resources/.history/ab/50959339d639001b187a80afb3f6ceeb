@@ -1,0 +1,15 @@
+package com.ashokit.rest;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class StockCalculationRestController {
+	
+	
+	public ResponseEntity<String> calculate(String companyName, Integer qty){
+		
+	}
+	
+
+}

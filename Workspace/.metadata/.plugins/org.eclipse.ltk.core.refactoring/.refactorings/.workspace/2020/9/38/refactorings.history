@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;14-SB-Data-JPA-Generators-App&apos; to &apos;15-SB-Data-JPA-Generators-App&apos;" description="Rename resource &apos;14-SB-Data-JPA-Generators-App&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/14-SB-Data-JPA-Generators-App" name="15-SB-Data-JPA-Generators-App" stamp="1600055913954" updateReferences="true"/>
+</session>

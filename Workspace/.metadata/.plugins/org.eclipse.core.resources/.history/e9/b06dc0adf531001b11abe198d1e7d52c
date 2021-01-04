@@ -1,0 +1,22 @@
+package com.ashokit;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.ashokit.request.Book;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+		
+		Book b = new Book();
+		b.setBookId(101);
+		b.setBookName("Spring");
+		b.setBookPrice(450.00);
+		
+		String endpointUrl = "http://localhost:9090/addbook";
+	}
+
+}

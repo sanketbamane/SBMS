@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="44-SB-MS-Eureka-Client-Two">
+        <property name="context-root" value="44-SB-MS-Eureka-Client-Two"/>
+    </wb-module>
+</project-modules>

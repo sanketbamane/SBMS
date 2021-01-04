@@ -1,0 +1,11 @@
+server:
+  port: 9090
+info:
+  app:
+    name: SB_REST_API
+    description: This is sample app for actuators
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

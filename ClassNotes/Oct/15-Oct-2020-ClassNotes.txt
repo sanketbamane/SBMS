@@ -1,0 +1,114 @@
+Yesterday's session : Student Reg Form with Dynamic Form values
+---------------------------------------------------------------
+
+-> We can send data from controller to UI using model object
+
+-> Model object will represent data in the form key-value pair
+
+	model.addAttribute(String key, Object value);
+
+-> To display dynamic values to dropdowns we can use items attribute
+
+	<form:select path="course">
+		<form:options items="${courses}"/>
+	</form:select>
+
+-> We can display dynamic checkboxes in form using <form:checkboxes /> tag
+
+	<form:checkboxes path="timings" items="${timings}"/>
+
+
+-> We can display dynamic radiobuttons in form using <form:radioButtons/> tag
+
+	<form:radioButtons path="gender" items="${genders}"/>
+
+
+---------------------------------------------------------------------
+Working with Embedded Database
+------------------------------------
+-> Embedded Database is called as In-Memory Database
+
+-> Embedded databases are tightly coupled with Application
+
+-> If application start then embedded database will start. If application stopped then embedded database will be stopped.
+
+-> Embedded databases are also called as temporary databases.
+
+-> No need of any installation to work with Embedded Database.
+
+-> If we add dependency in pom.xml then db will be available for our application.
+
+-> There are so many embedded databases available like H2, HSQL DB, SQLite etc...
+
+-> Spring Boot is having good integration with embedded database
+
+
+Steps to develop boot application with embedded database
+--------------------------------------------------------
+1) Create Spring Boot application with below dependencies
+
+	a)spring-boot-starter-web
+	b)spring-boot-starter-data-jpa
+	c)h2 database
+	d)project lombok
+	5)devtools
+	6)tomact-embed-jasper
+
+2) Configure below properties in application.yml file
+
+	a)server port
+	b)h2 datasource
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    password: null
+    url: jdbc:h2:mem:testdb
+    username: sa
+
+
+3) Create Entity Class & Repository interface
+
+4) Create Controller class with required methods
+
+5) Create presentation files
+
+6) Run the application and test it.
+
+
+Note: H2 database can be accessed using localhost:<port>/h2-console
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

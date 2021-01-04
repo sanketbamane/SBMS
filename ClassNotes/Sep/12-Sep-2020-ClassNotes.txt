@@ -1,0 +1,36 @@
+Yesterday's session : Working with findBy methods & Custom Queries
+-------------------------------------------------------------------
+
+
+-> We can perform CURD operations using Spring Data JPA in below 3 ways
+
+		1) using predefined methods
+		2) using findBy methods
+		3) using custom queries
+
+
+What is JpaRepository?
+----------------------
+-> JpaRepository is superior CrudRepository
+
+-> Using JpaRepository we can perform Curd Operations + Pagination + Sorting
+
+
+-> JpaRepository extending properties from PaginationAndSortingRepository and from QueryByExampleExecutor interfaces.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

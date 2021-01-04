@@ -1,0 +1,75 @@
+Spring Boot with Microservices
+------------------------------
+Pre-requisites
+---------------
+Core Java
+Adv Java
+Spring Core
+Hibernate basics
+
+Course Content
+--------------
+Part-1 : Spring Core & Spring Boot
+Part-2 : Spring Data JPA
+Part-3 : Spring Web MVC
+Part-4 : Spring with REST (Restful Services)
+Part-5 : Microservices
+Part-6 : Angular 10 Integration
+
+What is Spring ?
+----------------
+-> Spring is an application development framework
+
+-> Spring Framework developed in modular fashion
+
+-> Spring is loosely coupled framework
+
+-> Spring is versatile
+
+-> By Using spring framework we can develop Several types of Applications
+
+        1) Standalone applications
+        2) Web applications
+        3) Distributed Applications
+		a) SOAP Webservices
+		b) RESTful Services
+
+-> In Spring Framework, IOC and DI concepts    fundamental concepts of the Spring framework
+
+
+Drawbacks of Spring
+-------------------
+Lot of Configuration We have to do
+
+
+Spring Boot
+------------
+It is an approach to develop Spring Based Applications with Minimal Configurations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
